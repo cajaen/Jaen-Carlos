@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratorio 4 - Formulario Dinámico</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+    }
+    main {
+      width: 50vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section>
+      <fieldset>
+        <form id="formulario-inverso">
+          <label for="texto">
+            Escribe un texto:
+          </label>
+          <input id="texto" type="text" name="texto">
+        </form>
+      </fieldset>
+    </section>
+    <section>
+      <p>Texto invertido: <span id="textoInvertido"></span></p>
+    </section>
+  </main>
+
+  <script>
+    
+    const Utils = (() => {
+      
+      const invertirTexto = (texto) => {
+        return texto.split('').reverse().join('');
+      };
+      return {
+        invertirTexto,
+      };
+    })();
+
+    
+    const App = (({ invertirTexto }) => {
+        const htmlElements = {
+          formulario: document.querySelector('#formulario-inverso'),
+          inputTexto: document.querySelector('#texto'),
+          textoInvertido: document.querySelector('#textoInvertido'),
+        }
+
+        const handlers = {
+          onInput(e) {
+            const texto = htmlElements.inputTexto.value;
+            const textoInvertido = invertirTexto(texto);
+            htmlElements.textoInvertido.textContent = textoInvertido;
+          }
+        }
+
+        const bindEvents = () => {
+          htmlElements.inputTexto.addEventListener('input', handlers.onInput);
+        };
+
+        return {
+          init() {
+            bindEvents();
+          },
+        }
+    })(Utils);
+
+    
+    App.init();
+  </script>
+</body>
+</html>
