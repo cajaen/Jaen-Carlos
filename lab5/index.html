@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratorio 5 - Formulario Dinámico con Colores</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+    }
+    main {
+      width: 50vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    #responseContainer {
+      padding: 1rem;
+      border: 1px solid white;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section>
+      <fieldset>
+        <form id="formulario-inverso">
+          <label for="texto">Escribe un texto:</label>
+          <input id="texto" type="text" name="texto">
+          <label for="colorSelect">Elige un color:</label>
+          <select id="colorSelect" name="color">
+            <option value="white">Blanco</option>
+            <option value="red">Rojo</option>
+            <option value="blue">Azul</option>
+            <option value="green">Verde</option>
+            <option value="yellow">Amarillo</option>
+          </select>
+        </form>
+      </fieldset>
+    </section>
+    <section id="responseContainer">
+      <p>Texto invertido: <span id="textoInvertido"></span></p>
+    </section>
+  </main>
+
+  <script>
+    const Utils = (() => {
+      const invertirTexto = (texto) => {
+        return texto.split('').reverse().join('');
+      };
+      return {
+        invertirTexto,
+      };
+    })();
+
+    const App = (({ invertirTexto }) => {
+      const htmlElements = {
+        inputTexto: document.querySelector('#texto'),
+        textoInvertido: document.querySelector('#textoInvertido'),
+        colorSelect: document.querySelector('#colorSelect'),
+        responseContainer: document.querySelector('#responseContainer')
+      };
+
+      const handlers = {
+        onInput() {
+          const texto = htmlElements.inputTexto.value;
+          const textoInvertido = invertirTexto(texto);
+          htmlElements.textoInvertido.textContent = textoInvertido;
+        },
+        onColorChange() {
+          const color = htmlElements.colorSelect.value;
+          htmlElements.responseContainer.style.color = color;
+        }
+      };
+
+      const bindEvents = () => {
+        htmlElements.inputTexto.addEventListener('input', handlers.onInput);
+        htmlElements.colorSelect.addEventListener('change', handlers.onColorChange);
+      };
+
+      return {
+        init() {
+          bindEvents();
+        },
+      };
+    })(Utils);
+
+    App.init();
+  </script>
+</body>
+</html>
