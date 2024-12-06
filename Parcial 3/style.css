@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #081926;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    padding: 0 20px;
+
+}
+
+/* Logo */
+.logo-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: -160px;
+}
+
+.logo {
+    max-width: 250px;
+    height: auto;
+    transform: translateY(45%);
+    margin: 0;
+}
+
+/* Search Box */
+.search-box {
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px 30px 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align:left;
+    margin-bottom: 16px;
+}
+
+p {
+    display: flex;
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.search-input-container {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-container.space-between {
+    justify-content: space-between;
+}
+
+
+button {
+    background-color: #00a8ff;
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #0097e6;
+}
+
+/* Pokemon Info */
+.pokemon-info {
+    display: none;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Título principal del Pokémon */
+.pokemon-info h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align:left;    
+}
+
+/* Estilos de imagen para sprites */
+.pokemon-info img {
+    max-width: 50px; 
+    height: auto;
+}
+
+/* Estilos para el texto en .pokemon-info */
+.pokemon-info p {
+    display: flex;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 0;
+}
+
+/* Título principal del Pokémon */
+.pokemon-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Contenedor principal */
+.main-info {
+    display:grid;
+    grid-template-columns: 60% 50%;
+    justify-content: space-between; /* Espacio entre sprites y weight-height */
+    gap: 0px;
+    flex-direction: column;
+}
+
+.info-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Agrupación de Sprites */
+.sprite-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.sprites {
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    justify-content: flex-start;
+}
+
+.sprites img {
+    display: flex;
+    max-width: 50px;
+    height: auto;
+    flex-direction: row;
+}
+
+/* Agrupación de Weight/Height */
+.weight-height-group {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.weight-height-values {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.weight-height-values p {
+    display: flex;
+    margin: 5px 0;
+}
+
+/* Añade estos estilos a tu archivo CSS existente */
+
+.search-fields-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.search-group {
+    flex: 1;
+}
+
+.label-group {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+}
+
+.search-select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-select:focus {
+    outline: none;
+    background-color: #eaeaea;
+}
+
+/* Actualiza el estilo del input para mantener consistencia */
+.search-input-container input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+.search-input-container input:focus {
+    outline: none;
+    background-color: #eaeaea;
+}
+
+/* Estilos para la información de habilidades */
+.ability-info {
+    padding: 5px 15px;
+    background-color: white;
+    border-radius: 12px;
+    margin-top: 20px;
+
+}
+
+.ability-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: #081926 1px 1px 0;
+
+}
+
+.p-ability {
+    display: flex;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.ability-learners {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ability-learners li {
+    margin-bottom: 5px;
+}
+
+/*Evoluciones y Habilidades*/
+
+.evolution-group,
+.abilities-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+
+
+.evolution-list,
+.abilities-list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.evolution-list li,
+.abilities-list li {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/*Imagen de Github*/
+.corner-image {
+    position: absolute;
+    top: 10px; /* Ajusta según lo necesites */
+    right: 10px; /* Ajusta según lo necesites */
+}
+
+.corner-image img {
+    width: 50px; /* Ajusta el tamaño según lo necesites */
+    height: auto;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 319px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .search-box {
+        padding: 50px 20px 20px;
+    }
+
+    .logo {
+        max-width: 150px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .search-fields-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

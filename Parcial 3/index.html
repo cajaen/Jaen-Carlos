@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Pokemon</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="app.js"></script>
+</head>
+<body>
+    <!-- Link al repositorio de GitHub -->
+    <a href="https://github.com/2024-SEMII-DESV-1GS222/jaen-carlos/tree/main/Parcial%203" target="_blank" class="corner-image">
+        <img src="Github.png" alt="Link al repositorio">
+    </a>    
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Logo de la aplicación -->
+        <div class="logo-container">
+            <img src="Logo.png" alt="PokeAPI" class="logo">
+        </div>
+    
+        <!-- Caja de búsqueda -->
+        <div class="search-box">
+            <h1>Buscador de pokemones</h1>
+            <p>Busca desde pokemones hasta las habilidades de los mismos.</p>
+    
+            <!-- Formulario de búsqueda -->
+            <form class="search-form">
+                <div class="search-fields-container">
+                    <!-- Campo de búsqueda -->
+                    <div class="search-group">
+                        <div class="label-group">
+                            <label for="nombre-pokemon">Buscar</label>
+                        </div>
+                        <div class="search-input-container">
+                            <input type="text" id="nombre-pokemon" placeholder="Escribe un nombre...">
+                        </div>
+                    </div>
+                    <!-- Selector de tipo de búsqueda -->
+                    <div class="search-group">
+                        <div class="label-group">
+                            <label for="tipo-busqueda">Tipo de Búsqueda</label>
+                        </div>
+                        <select id="tipo-busqueda" class="search-select">
+                            <option value="pokemon">Por Pokemon</option>
+                            <option value="habilidad">Por Habilidad</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Contenedor de botones -->
+                <div class="button-container">
+                    <button type="button" id="boton-limpiar" style="display: none;">Limpiar</button>
+                    <button type="submit" id="boton-buscar">Buscar</button>
+                </div>
+            </form>
+        </div>
+    
+        <!-- Contenedores para mostrar la información -->
+        <div id="info-pokemon" class="pokemon-info" style="display: none;"></div>
+        <div class="ability-info" style="display: none;"></div>
+    </div>
+</body>
+</html>
