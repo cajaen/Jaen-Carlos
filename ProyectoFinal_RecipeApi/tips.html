@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consejos de Cocina</title>
+  <link rel="stylesheet" href="css/tips.css">
+  <script type="module">
+    import AppFactory from './js/app.js';
+    import NavigationFactory from './js/navigation.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      AppFactory.init();
+      NavigationFactory.init();
+
+      // Asociar el evento al botón de búsqueda
+      const searchButton = document.getElementById('search-btn');
+      searchButton.addEventListener('click', AppFactory.handlers.handleSearchEvent);
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Consejos de Cocina</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#" class="btn btn-index" data-page="index.html">Inicio</a></li>
+        <li><a href="#" class="btn btn-search" data-page="search.html">Buscar</a></li>
+        <li><a href="#" class="btn btn-recipe-details" data-page="recipe-details.html">Detalles</a></li>
+        <li><a href="#" class="btn btn-nutrition" data-page="nutrition.html">Nutrición</a></li>
+        <li><a href="#" class="btn btn-tips" data-page="tips.html">Consejos</a></li>
+        <li><a href="#" class="btn btn-my-pantry" data-page="my-pantry.html">Mi Despensa</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="search-container">
+    <label for="search-input">Introduce un ingrediente o tipo de receta:</label>
+    <input type="text" id="search-input" placeholder="Ej. Chicken, Pasta, Salad" />
+    <button id="search-btn">Buscar Consejo</button>
+  </div>
+
+  <!-- Sección donde se mostrarán los consejos -->
+  <div id="cooking-tips">
+    <!-- Los consejos se cargarán aquí -->
+  </div>
+
+  <!-- Sección donde se mostrarán los detalles de una receta -->
+  <div id="recipe-details" style="display: none;">
+    <h2>Detalles de la Receta</h2>
+    <button id="close-details">Cerrar</button>
+    <div id="details-content"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer> 
+    <p>&copy; 2024 Recipe API</p>
+  </footer>
+</body>
+</html>

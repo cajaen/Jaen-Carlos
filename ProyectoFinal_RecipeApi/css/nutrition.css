@@ -1,0 +1,219 @@
+/* Configuración global */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Encabezado */
+header {
+  background-color: #ebc5a4;
+  padding: 2px 10px;
+  text-align: center;
+  color: white;
+  border-bottom: 3px solid #ba4a11;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Navegación */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+/* Botones en el header */
+.nav-links a {
+  text-decoration: none; /* Elimina el subrayado */
+  /* padding: 10px 15px; */
+  font-size: 1rem;
+  border-radius: 5px; /* Bordes redondeados */
+  color: white; /* Color inicial del texto */
+  background-color: #6c757d; /* Color inicial del botón */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Suaviza la transición de color */
+}
+
+/* Cambia a naranja al pasar el mouse */
+.nav-links a:hover {
+  background-color: #ba4a11; /* Color de fondo naranja */
+  color: #ffffff; /* Asegura que el texto siga siendo legible */
+}
+
+/* Botones */
+.btn {
+  text-decoration: none;
+  padding: 6px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out; /* Animación en todos los cambios */
+  color: white;
+  background-color: #6c757d;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden; /* Para animación de fondo */
+}
+
+/* Botón específico */
+.btn-vernutrition {
+  margin-top: 2%;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #ba4a11;
+  color: white;
+  cursor: pointer;
+}
+
+/* Botón Volver */
+#btn-back {
+  margin: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ba4a11;
+  color: white;
+  cursor: pointer;
+}
+
+/* Información nutricional */
+#nutrition-info {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  flex: 1;
+  max-width: 35%; /* Ancho ajustado para que sea más estrecho */
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido dentro del contenedor */
+  height: 100%; /* Ajusta la altura al 100% del contenedor */
+}
+
+
+
+#nutrition-info ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#nutrition-info li {
+  margin: 10px 0;
+}
+
+#nutrition-info li strong {
+  font-weight: bold;
+}
+
+/* Estilo del contenido principal (Incluyendo imagen) */
+main {
+  padding: 0px;
+  text-align: center;
+}
+
+#nutrition-container {
+  display: flex;
+  align-items: flex-start; /* Asegura que los elementos se alineen correctamente */
+  gap: 20px;
+  margin: 20px;
+  height: auto; /* Se ajusta automáticamente al contenido */
+}
+
+#nutrition-container img {
+  width: auto;
+  height: 410; /* Asigna una altura específica a la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out; /* Suaviza la animación */
+}
+
+#nutrition-container img:hover {
+  transform: scale(1.05); /* Aumenta ligeramente la imagen al pasar el mouse */
+}
+
+/* Comportamientos interactivos */
+.btn:hover {
+  opacity: 1; /* Mantiene el color sólido */
+  transform: scale(1.05); /* Hace que el botón sobresalga ligeramente */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+}
+
+.btn:active {
+  transform: scale(0.98); /* Reduce ligeramente el tamaño al presionar */
+}
+
+/* Efecto adicional de resplandor */
+.btn:hover:before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s linear infinite;
+}
+
+/* Efecto de animación */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Estilo del pie de página */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 2px 10px; /* Reduce el espacio vertical */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9em; /* Reduce ligeramente el tamaño del texto */
+  line-height: 1.2; /* Ajusta la altura de línea */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  #nutrition-container {
+    flex-direction: column; /* Coloca los elementos en columna en pantallas pequeñas */
+    align-items: center;
+  }
+
+  #nutrition-container img {
+    width: 100%; /* La imagen ocupará el 100% del contenedor */
+    height: auto; /* Asegura que la imagen mantenga su proporción */
+    object-fit: cover; /* La imagen se recortará sin distorsionarse */
+  }
+
+  #nutrition-info {
+    max-width: 100%; /* La información de nutrición ocupará el 100% en pantallas pequeñas */
+    margin: 20px 0;
+  }
+}

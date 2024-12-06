@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscar Recetas</title>
+  <link rel="stylesheet" href="css/search.css">
+  
+  <script type="module">
+    import AppFactory from './js/app.js';
+    import NavigationFactory from './js/navigation.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      AppFactory.init();
+      NavigationFactory.init()
+    });
+  </script>
+
+</head>
+<body>
+  <header>
+    <h1>Buscar Recetas</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#" class="btn btn-index" data-page="index.html">Inicio</a></li>
+        <li><a href="#" class="btn btn-search" data-page="search.html">Buscar</a></li>
+        <li><a href="#" class="btn btn-recipe-details" data-page="recipe-details.html">Detalles</a></li>
+        <li><a href="#" class="btn btn-nutrition" data-page="nutrition.html">Nutrición</a></li>
+        <li><a href="#" class="btn btn-tips" data-page="tips.html">Consejos</a></li>
+        <li><a href="#" class="btn btn-my-pantry" data-page="my-pantry.html">Mi Despensa</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+  <form id="search-form" class="search-form">
+    <input type="text" id="search-query" placeholder="Ingresa el nombre o ingrediente" required>
+    <button type="submit" class="btn">Buscar</button>
+  </form>
+
+  <div id="search-results"></div>
+
+  </main>
+
+  <footer> 
+    <p>&copy; 2024 Recipe API</p>
+  </footer>
+
+  <script>
+    // Asegúrate de colocar tu API key aquí
+    const apiKey = '48cd25145c0547acbf9d7af82f1f3314';
+
+    // Función de búsqueda que hace la llamada a la API
+    document.getElementById('search-form').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevenir el envío tradicional del formulario
+      const query = document.getElementById('search-query').value; // Obtener el valor del campo de búsqueda
+      if (query) {
+        searchRecipes(query); // Llamar a la función de búsqueda con el término ingresado
+      }
+    });
+
+    async function searchRecipes(query) {
+      try {
+        const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${apiKey}`);
+        const data = await response.json();
+
+        if (data.results && data.results.length > 0) {
+          displayResults(data.results); // Si hay resultados, mostrarlos
+        } else {
+          document.getElementById('search-results').innerHTML = '<p>No se encontraron recetas.</p>';
+        }
+      } catch (error) {
+        console.error('Error al realizar la búsqueda:', error);
+        document.getElementById('search-results').innerHTML = '<p>Error al realizar la búsqueda. Intenta nuevamente.</p>';
+      }
+    }
+
+    function displayResults(recipes) {
+      const container = document.getElementById('search-results');
+      container.innerHTML = ''; // Limpiar resultados previos
+      recipes.forEach(recipe => {
+        const div = document.createElement('div');
+        div.classList.add('recipe-card');
+        div.innerHTML = `
+          <h3>${recipe.title}</h3>
+          <img src="${recipe.image}" alt="${recipe.title}">
+          <div clas="btn-container">
+          <a href="recipe-details.html?id=${recipe.id}" class="btn">Ver Detalles</a>
+          <a href="nutrition.html?id=${recipe.id}" class="btn btn-nutrition">Ver Nutrición</a>
+          </div>
+          `;
+        container.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>

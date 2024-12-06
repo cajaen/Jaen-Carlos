@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscar Recetas</title>
+  <link rel="stylesheet" href="css/index.css">
+  
+
+<script type="module">
+  import AppFactory from './js/app.js';
+  import NavigationFactory from './js/navigation.js';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    AppFactory.init();
+    NavigationFactory.init();
+  });
+  
+</script>
+</head>
+
+<body>
+  <header>
+    <h1>"Sabor Inteligente: Tu API de Recetas y Nutrición"</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#" class="btn btn-index" data-page="index.html">Inicio</a></li>
+        <li><a href="#" class="btn btn-search" data-page="search.html">Buscar</a></li>
+        <li><a href="#" class="btn btn-recipe-details" data-page="recipe-details.html">Detalles</a></li>
+        <li><a href="#" class="btn btn-nutrition" data-page="nutrition.html">Nutrición</a></li>
+        <li><a href="#" class="btn btn-tips" data-page="tips.html">Consejos</a></li>
+        <li><a href="#" class="btn btn-my-pantry" data-page="my-pantry.html">Mi Despensa</a></li>
+      </ul>
+    </nav>
+  </header>
+    
+ 
+  <img src="imagenes/Food.jpg" alt="Comida deliciosa" class="full-width-image">
+  
+  <footer> 
+    <p>&copy; 2024 Recipe API</p>
+  </footer>
+
+  <!-- No es necesario incluir los scripts nuevamente, ya que están importados en el <head> -->
+</body>
+</html>

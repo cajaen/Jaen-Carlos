@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información Nutricional</title>
+  <link rel="stylesheet" href="css/nutrition.css">
+  
+  <script type="module">
+    import AppFactory from './js/app.js';
+    import NavigationFactory from './js/navigation.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      AppFactory.init();
+      NavigationFactory.init();
+
+      // Obtener el ID de la receta desde la URL
+      const recipeId = new URLSearchParams(window.location.search).get("id");
+
+      if (recipeId) {
+        AppFactory.handlers.loadNutritionInfo(recipeId); // Cargar la información nutricional
+      } else {
+        document.getElementById('nutrition-info').innerHTML = '<p>No se especificó una receta válida.</p>';
+      }
+    });
+  </script>
+  
+</head>
+<body>
+  <header>
+    <h1>Información Nutricional</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="btn" data-page="index.html">Inicio</a></li>
+        <li><a href="search.html" class="btn" data-page="search.html">Buscar</a></li>
+        <li><a href="recipe-details.html" class="btn" data-page="recipe-details.html">Detalles</a></li>
+        <li><a href="nutrition.html" class="btn" data-page="nutrition.html">Nutrición</a></li>
+        <li><a href="tips.html" class="btn" data-page="tips.html">Consejos</a></li>
+        <li><a href="my-pantry.html" class="btn" data-page="my-pantry.html">Mi Despensa</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <button id="btn-back" class="btn">Volver a Buscar</button>
+
+  <div id="nutrition-container">
+    <img id="recipe-image" src="placeholder.jpg" alt="Imagen del plato" />
+    <div id="nutrition-info">
+      <p>Cargando información nutricional...</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Recipe API</p>
+  </footer>
+
+ 
+</body>
+</html>
